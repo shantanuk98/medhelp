@@ -6,6 +6,34 @@
 
 {% block body %}
 <div class="col-sm-12">
+        <div class="container" id="c1" align="center">
+                <div class="card border-light bg-transparent" style="width: 18rem;">
+                  <div id="c2" class="container text-center">
+                  <a href="{% url 'home' %}">
+                    <img src="{% static 'images/image.png' %}" alt="">
+                  </a>
+                    <form class="form-group" method="post">
+                      <div class="form-group">
+                        {% csrf_token %}
+                        {% for field in form %}
+                          <div class="form-group">
+                              <input class="form-control" id="{{ field.id_for_label }}" maxlength="30" name="{{ field.html_name }}" placeholder="{{ field.label }}" type="{{ field.html_name }}" />
+                            {% if field.error %}
+                              <label for="">Username or password does not match.</label>
+                            {% endif %}
+                          </div>
+                        {% endfor %}
+                      </div>
+                      <div class="form-group">
+                        <button class="btn btn-success bg-transparent text-success" type="submit" name="button">Login</button>
+                      </div>
+                      <a href="{% url 'reset' %}" class="text-light">Forgot Password?</a>
+                    </form>
+                  </div>
+                  <div class="card-footer bg-transparent border-light"> <a href="{% url 'signup' %}"> <button type="button" class="btn btn-primary bg-transparent text-primary" name="button">Sign Up!</button> </a>  </div>
+                </div>
+              </div>
+          
 	<a href="{{url_for('homepage')}}" style="text-decoration: none;"><h3>Go Back</h3></a>
 </div>
 {% endblock %}
