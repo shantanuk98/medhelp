@@ -27,6 +27,14 @@ class RegistrationForm(Form):
     confirm = PasswordField('Repeat Password')
     accept_tos = BooleanField('I accept the Terms of Service and Privacy Notice (updated Jan 22, 2015)', [validators.Required()])
 
+@app.route('/signup')
+def medicine_page():
+	return render_template("signup.html")
+
+@app.route('/login')
+def medicine_page():
+	return render_template("login.html")
+
 @app.route('/medicine')
 def medicine_page():
 	return render_template("medicine.html")
@@ -43,7 +51,7 @@ def volunteer_page():
 def homepage():
     return render_template("index.html")
 
-@app.route('/register/', methods=["GET","POST"])
+@app.route('/register', methods=["GET","POST"])
 def register_page():
     try:
         form = RegistrationForm(request.form)
@@ -58,7 +66,7 @@ def register_page():
         return(str(e))
 
 
-@app.route('/login/', methods=["GET","POST"])
+@app.route('/login', methods=["GET","POST"])
 def login_page():
 
     error = ''
