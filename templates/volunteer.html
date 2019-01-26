@@ -6,15 +6,16 @@
 
 {% block body %}
 <form class="form-group">
-	<p>Why do you want to become a volunteer?
-		<textarea rows="4" cols="50"></textarea>
+	<p><h3>Why do you want to become a volunteer?</h3><br>
+		<textarea rows="10" cols="150"></textarea>
 	</p>
-	<p>How much hours can you give per week?
-		<textarea rows="4" cols="50"></textarea>
+	<p><h3>How much hours can you give per week?</h3><br>
+		<textarea rows="10" cols="150"></textarea>
 	</p>
-	<p>Are you associated with any other NGOs?
-		<textarea rows="4" cols="50"></textarea>
+	<p><h3>Are you associated with any other NGOs?</h3><br>
+		<textarea rows="10" cols="150"></textarea>
 	</p>
+	<button type="submit"><h4>Submit</h4></button>
 </form>
 <div class="col-sm-12">
 	<a href="{{url_for('homepage')}}" style="text-decoration: none;"><h3>Go Back</h3></a>

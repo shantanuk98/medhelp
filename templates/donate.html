@@ -6,6 +6,21 @@
 
 {% block body %}
 <div class="col-sm-12">
-	<a href="{{url_for('homepage')}}" style="text-decoration: none;"><h3>Go Back</h3></a>
+    <a href="{{url_for('homepage')}}" style="text-decoration: none;"><h3>Go Back</h3></a>
+    <form> 
+        <h3>1.
+        <label>Medicine Name</label>&nbsp;<input type="text"> <br>&nbsp;&nbsp;
+        <label>Quantity</label>&nbsp;&nbsp;&nbsp;<input type="quantity"> <br>&nbsp;&nbsp;
+        <label>Pickup Date</label>&nbsp;<input type="date"> <br></h3>
+        <h3>2.
+        <label>Medicine Name</label>&nbsp;<input type="text"> <br>&nbsp;&nbsp;
+        <label>Quantity</label>&nbsp;&nbsp;&nbsp;<input type="quantity"> <br>&nbsp;&nbsp;
+        <label>Pickup Date</label>&nbsp;<input type="date"> <br></h3>
+        <h3>3.
+        <label>Medicine Name</label>&nbsp;<input type="text"> <br>&nbsp;&nbsp;
+        <label>Quantity</label>&nbsp;&nbsp;&nbsp;<input type="quantity"> <br>&nbsp;&nbsp;
+        <label>Pickup Date</label>&nbsp;<input type="date"> <br></h3>
+        <button type="submit"><h4>Submit</h4></button>
+    </form>
 </div>
 {% endblock %}
