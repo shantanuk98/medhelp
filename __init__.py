@@ -31,7 +31,7 @@ class RegistrationForm(Form):
 
 @app.route('/')
 def homepage():
-    return render_template("main.html")
+    return render_template("index.html")
 
 @app.route('/register/', methods=["GET","POST"])
 def register_page():
