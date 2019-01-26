@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+  <title>S. H. Construction Co.</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="shortcut icon" type="image/x-icon" href="logo.png" />
+  <style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+    body, html {
+        height: 100%;
+        line-height: 1.8;
+    }
+
+    /* Full height image header */
+    .bgimg-1 {
+        background-position: center;
+        background-size: cover;
+        background-image: url("bg.jpg");
+        min-height: 100%;
+    }
+    .w3-bar .w3-button {
+        padding: 16px;
+    }
+  </style>
+  <body>
+
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-bar w3-white w3-card" id="myNavbar">
+        <a href="#home" class="w3-bar-item"><img src="logo.png" width="90" height="45"></a>
+
+        <!-- Right-sided navbar links -->
+        <div class="w3-right w3-hide-small">
+          <a href="#about" class="w3-bar-item w3-button"><i class="fa fa-th"></i> ABOUT</a>
+          <a href="#achievement" class="w3-bar-item w3-button"><i class="fa fa-line-chart"></i> ACHIEVEMENT</a>
+          <a href="#work" class="w3-bar-item w3-button"><i class="fa fa-briefcase"></i> WORK</a>
+          <a href="#skill" class="w3-bar-item w3-button"><i class="fa fa-cogs"></i> SKILL</a>
+          <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> TEAM</a>
+          <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+        </div>
+        
+        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+          <i class="fa fa-bars"></i> MENU
+        </a>
+      </div>
+    </div>
+
+    <!-- Sidebar on small screens when clicking the menu icon -->
+    <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+      <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16"><i class="fa fa-close"></i> Close</a>
+      <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-th"></i> ABOUT</a>
+      <a href="#achievement" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-line-chart"></i> ACHIEVEMENT</a>
+      <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-briefcase"></i> WORK</a>
+      <a href="#skill" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-cogs"></i> SKILL</a>
+      <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-user"></i> TEAM</a>
+      <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+    </nav>
+
+    <!-- Modal for full size images on click-->
+    <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+      <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image"><i class="fa fa-close"></i></span>
+      <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+        <img id="img01" class="w3-image">
+        <p id="caption" class="w3-opacity w3-large"></p>
+      </div>
+    </div>
+
+    <!-- Header with full-height image -->
+      <header class="bgimg-1 w3-display-container" id="home">
+        <div class="w3-display-left w3-text-black" style="padding:48px">
+          <span class="w3-jumbo w3-hide-small"><br><br><br><br><br>&nbsp;&nbsp;&nbsp;<p style="font-size: 250%;">MedHelp</p></span><br>
+          <span class="w3-xxxlarge w3-hide-large w3-hide-medium"><br><br><br><br><p style="font-size: 400%;">MedHelp</p></span><br>
+          <span class="w3-xlarge"><b>Structural, Mechanical & Piping Contractors</b></span>
+          <p><a href="#about" class="w3-button w3-black w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Learn more</a></p>
+        </div>
+      </header>
+
+      <!-- About Section-->
+      <div class="w3-container"  style="padding:128px 16px" id="about">
+        <h1 class="w3-center w3-xxxlarge"><b>ABOUT THE COMPANY</b></h1>
+        <p class="w3-center w3-xlarge">We are providing service to TATA STEEL since last 40 years and we are dealing with structural, mechanical, piping and critical conveyor belt jobs. Below are some of the most critical jobs that we have executed.</p><br>
+        <p class="w3-center w3-xxlarge"><b>Key features of our company</b></p><br>
+        <div class="w3-row-padding w3-center">
+          <div class="w3-quarter">
+            <i class="fa fa-desktop w3-margin-bottom w3-jumbo"></i>
+            <p class="w3-large">Responsive</p>
+          </div>
+          <div class="w3-quarter">
+            <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
+            <p class="w3-large">Passion</p>
+          </div>
+          <div class="w3-quarter">
+            <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
+            <p class="w3-large">Design</p>
+          </div>
+          <div class="w3-quarter">
+            <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
+            <p class="w3-large">Support</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Achievement Section -->
+      <div class="w3-container" style="padding:128px 16px" id="achievement">
+        <h1 class="w3-center w3-xxxlarge"><b>OUR ACHIEVEMENT</b></h1>
+        <p class="w3-center w3-xxlarge">What we've been honoured for</p>
+        <div class="w3-row-padding" style="margin-top:64px">
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <img src="ohsas.jpg" style="width:100%; height:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="OHSAS Certified"><h4 class="w3-center">OHSAS Certified</h4>
+              </div>
+            </div>
+          </div>
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <img src="ohsas2.jpg" style="width:100%; height:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Award Ceremony"><h4 class="w3-center">Award Ceremony</h4>
+              </div>
+            </div>
+          </div>
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <img src="csms.jpg" style="width:100%; height:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="CSMS Three Star Rating"><h4 class="w3-center">CSMS Three Star Rating</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Work Section -->
+      <div class="w3-container" style="padding:128px 16px" id="work">
+        <h1 class="w3-center w3-xxxlarge"><b>OUR WORK</b></h1>
+        <p class="w3-center w3-xxlarge">What we've done for people</p>
+        <div class="w3-row-padding" style="margin-top:64px">
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <img src="hbf.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="MB#1 HBF"><h4 class="w3-center">MB#1 HBF</h4>
+              </div>
+            </div>
+          </div>
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <img src="ibf.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="MB#2 IBF"><h4 class="w3-center">MB#2 IBF</h4>
+              </div>
+            </div>
+          </div>
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <img src="ldo.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="LDO TANK PH#3"><h4 class="w3-center">LDO TANK PH#3</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skill Section -->
+      <div class="w3-container" style="padding:128px 16px" id="skill">
+        <h1 class="w3-center w3-xxxlarge"><b>OUR SKILL</b></h1>
+        <p class="w3-center w3-xxlarge">What we're specialized in</p>
+        <div class="w3-row-padding" style="margin-top:64px">
+            <div class="w3-card">
+                <div class="w3-container">
+                  <br>
+                <div class="w3-col l4 m6 w3-margin-bottom">
+                  <div class="w3-card">
+                    <div class="w3-container w3-xlarge">
+                      LD#1 Mechanical Job
+                    </div>
+                  </div>
+                </div>
+                <div class="w3-col l4 m6 w3-margin-bottom">
+                  <div class="w3-card">
+                    <div class="w3-container w3-xlarge">
+                      Billet Yard Maintenance Job
+                    </div>
+                  </div>
+                </div>
+                <div class="w3-col l4 m6 w3-margin-bottom">
+                  <div class="w3-card">
+                    <div class="w3-container w3-xlarge">
+                      CC#1,2&3 Mechanical Maintenance Job
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <br><br>
+          <div class="w3-card">
+                <div class="w3-container">
+                  <br>
+                <div class="w3-col l4 m6 w3-margin-bottom">
+                  <div class="w3-card">
+                    <div class="w3-container w3-xlarge">
+                      LD#2 Mechanical Job
+                    </div>
+                  </div>
+                </div>
+                <div class="w3-col l4 m6 w3-margin-bottom">
+                  <div class="w3-card">
+                    <div class="w3-container w3-xlarge">
+                      Caster Area Main Job
+                    </div>
+                  </div>
+                </div>
+                <div class="w3-col l4 m6 w3-margin-bottom">
+                  <div class="w3-card">
+                    <div class="w3-container w3-xlarge">
+                      Scarfing Area Mech. Maintenance Jobs
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+            <br><br>
+            <div class="w3-card">
+                <div class="w3-container">
+                  <br>
+                <div class="w3-col l4 m6 w3-margin-bottom">
+                  <div class="w3-card">
+                    <div class="w3-container w3-xlarge">
+                      LD#3 Mechanical Job
+                    </div>
+                  </div>
+                </div>
+                <div class="w3-col l4 m6 w3-margin-bottom">
+                  <div class="w3-card">
+                    <div class="w3-container w3-xlarge">
+                      TSCR Mechanical Maintenance
+                    </div>
+                  </div>
+                </div>
+                <div class="w3-col l4 m6 w3-margin-bottom">
+                  <div class="w3-card">
+                    <div class="w3-container w3-xlarge">
+                      TSCR Operational Jobs
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <br><br>
+          <div class="w3-card">
+                <div class="w3-container">
+                  <br>
+                <div class="w3-col l4 m6 w3-margin-bottom">
+                  <div class="w3-card">
+                    <div class="w3-container w3-xlarge">
+                      Critical Belt
+                    </div>
+                  </div>
+                </div>
+                <div class="w3-col l4 m6 w3-margin-bottom">
+                  <div class="w3-card">
+                    <div class="w3-container w3-xlarge">
+                      Global
+                    </div>
+                  </div>
+                </div>
+                <div class="w3-col l4 m6 w3-margin-bottom">
+                  <div class="w3-card">
+                    <div class="w3-container w3-xlarge">
+                      Belt Mechnical Jobs
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+            <br><br>
+            <div class="w3-card">
+                <div class="w3-container">
+                  <br>
+                <div class="w3-col l4 m6 w3-margin-bottom">
+                  <div class="w3-card">
+                    <div class="w3-container w3-xlarge">
+                      Coke Plant
+                    </div>
+                  </div>
+                </div>
+                <div class="w3-col l4 m6 w3-margin-bottom">
+                  <div class="w3-card">
+                    <div class="w3-container w3-xlarge">
+                      Coke Bat#10,11 Maintenance
+                    </div>
+                  </div>
+                </div>
+                <div class="w3-col l4 m6 w3-margin-bottom">
+                  <div class="w3-card">
+                    <div class="w3-container w3-xlarge">
+                      Refractory and Operational Maintenance Jobs
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <br>
+          <br>
+        </div>
+      </div>
+
+      <!-- Team Section -->
+      <div class="w3-container"  style="padding:128px 16px" id="team">
+        <h1 class="w3-center w3-xxxlarge"><b>THE TEAM</b></h1>
+        <p class="w3-center w3-xxlarge">The ones who runs this company</p>
+        <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <h3>Haroon Khan</h3>
+                <h4>Propreitor</h4>
+              </div>
+            </div>
+          </div>
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <h3>Md. Sadique Ahmad</h3>
+                <h4>Support Services</h4>
+              </div>
+            </div>
+          </div>
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <h3>Syed Kazim Hussain</h3>
+                <h4>Administrtor</h4>
+              </div>
+            </div>
+          </div>
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <h3>Javed Akhtar</h3>
+                <h4>Stores & Maintenance</h4>
+              </div>
+            </div>
+          </div>
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <h3>H. Rasheed</h3>
+                <h4>Account Section</h4>
+              </div>
+            </div>
+          </div>
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <h3>D.B. Mitra</h3>
+                <h4>Establishment</h4>
+              </div>
+            </div>
+          </div>
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <h3>Md. Arshad</h3>
+                <h4>H.R./I.R.</h4>
+              </div>
+            </div>
+          </div>
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <h3>Md. Tahir Khan</h3>
+                <h4>Area Coordinator - Iron Making (Sinter Plant)</h4>
+              </div>
+            </div>
+          </div>
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <h3>Pankaj Kumar Mishra</h3>
+                <h4>Area Coordinator - Steel Making (LD-1, 2 & 3)</h4>
+              </div>
+            </div>
+          </div>
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <h3>S.M. Haque</h3>
+                <h4>Safety Incharge</h4>
+              </div>
+            </div>
+          </div>
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <h3>Jogeswar Prasad</h3>
+                <h4>Area Safety - Supervisor</h4>
+              </div>
+            </div>
+          </div>
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <h3>K. Ravi</h3>
+                <h4>Area Safety Supervisor</h4>
+              </div>
+            </div>
+          </div>
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <h3>M. Iqbal</h3>
+                <h4>Assistant Area Coordinator</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Section -->
+      <div class="w3-container" style="padding:128px 16px" id="contact">
+        <h1 class="w3-center w3-xxxlarge"><b>CONTACT US</b></h1>
+        <p class="w3-center w3-xxlarge">Lets get in touch. Send us a message:</p>
+        <div class="w3-row-padding" style="margin-top:64px">
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <p><i class="fa fa-map-marker fa-fw w3-jumbo w3-margin-right"></i> G.S. Road, Jugsalai, Jamshedpur</p>
+              </div>
+            </div>
+          </div>
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <p><i class="fa fa-phone fa-fw w3-jumbo w3-margin-right"></i> Phone: 0657-2222260</p>
+              </div>
+            </div>
+          </div>
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <p><i class="fa fa-envelope fa-fw w3-jumbo w3-margin-right"> </i> Email: <a href="mailto:shcjsr@rediffmail.com">shcjsr@rediffmail.com</a></p>
+              </div>
+            </div>
+          </div> 
+        </div>
+      </div>
+      
+      <footer class="w3-center w3-black">
+        <a href="#home" class="w3-button w3-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+        <p>Developed by <a href="http://www.knayan.co.nf" title="knayan" target="_blank" class="w3-hover-text-green">Kamal Nayan</a></p>
+      </footer>
+
+    <script>
+
+    // Modal Image Gallery
+    function onClick(element) {
+      document.getElementById("img01").src = element.src;
+      document.getElementById("modal01").style.display = "block";
+      var captionText = document.getElementById("caption");
+      captionText.innerHTML = element.alt;
+    }
+
+    // Toggle between showing and hiding the sidebar when clicking the menu icon
+    var mySidebar = document.getElementById("mySidebar");
+
+    function w3_open() {
+        if (mySidebar.style.display === 'block') {
+            mySidebar.style.display = 'none';
+        } else {
+            mySidebar.style.display = 'block';
+        }
+    }
+
+    // Close the sidebar with the close button
+    function w3_close() {
+        mySidebar.style.display = "none";
+    }
+    </script>
+  </body>
+</html> 
