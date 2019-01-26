@@ -39,8 +39,8 @@
           <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> TEAM</a>
           <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
           <form class="form-inline">
-            <a class="nav-item nav-link mr-sm-2" href="{% url 'signup' %}"> <button type="button" class="btn btn-primary bg-transparent text-primary" name="button">SignUp</button> </a>
-            <a class="nav-item nav-link mr-sm-0" href="{% url 'login' %}"> <button type="button" class="btn btn-success bg-transparent text-success" name="button">Login</button> </a>
+            <a class="nav-item nav-link mr-sm-2" href="{{ url_for ('signup_page') }}"> <button type="button" class="btn btn-primary bg-transparent text-primary" name="button">SignUp</button> </a>
+            <a class="nav-item nav-link mr-sm-0" href="{{ url_for ('login_page') }}"> <button type="button" class="btn btn-success bg-transparent text-success" name="button">Login</button> </a>
           </form>
         </div>
         
@@ -58,8 +58,8 @@
       <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-user"></i> TEAM</a>
       <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
       <form class="form-inline">
-        <a class="nav-item nav-link mr-sm-2" href="{% url 'signup' %}"> <button type="button" class="btn btn-primary bg-transparent text-primary" name="button">SignUp</button> </a>
-        <a class="nav-item nav-link mr-sm-0" href="{% url 'login' %}"> <button type="button" class="btn btn-success bg-transparent text-success" name="button">Login</button> </a>
+        <a class="nav-item nav-link mr-sm-2" href="{{ url_for ('signup_page') }}"> <button type="button" class="btn btn-primary bg-transparent text-primary" name="button">SignUp</button> </a>
+        <a class="nav-item nav-link mr-sm-0" href="{{ url_for ('login_page') }}"> <button type="button" class="btn btn-success bg-transparent text-success" name="button">Login</button> </a>
       </form>
     </nav>
     <!-- Header with full-height image -->
