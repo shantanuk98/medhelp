@@ -4,11 +4,11 @@ from passlib.hash import sha256_crypt
 import gc
 import mysql.connector
 import os
-
+from flask_login import LoginManager
 mydb = mysql.connector.connect(
   host="localhost",
-  user="knayan",
-  passwd="lab3@cc",
+  user="root",
+  passwd="root",
   database="mydatabase"
 )
 
@@ -19,8 +19,10 @@ ALLOWED_EXTENSIONS = set(['pdf', 'png', 'jpg', 'jpeg', 'gif'])
 mycursor = mydb.cursor()
 
 app = Flask(__name__)
+login_manager = LoginManager()
+login_manager.init_app(app)
 app.secret_key = "super secret key"
-app.config['UPLOAD_FOLDER'] = os.path.join(UPLOAD_FOLDER,"static/profile")
+app.config['UPLOAD_FOLDER'] = os.path.join(UPLOAD_FOLDER,"static")
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -37,13 +39,27 @@ class RegistrationForm(Form):
     address = TextField('Address', [validators.Length(min=0, max=200)])
     accept_tos = BooleanField('I accept the Terms of Service and Privacy Notice (updated Jan 22, 2015)', [validators.Required()])
 
+@login_manager.user_loader
+def load_user(user_id):
+    return User.get(user_id)
+
 @app.route('/profile')
 def profile():
     return render_template("profile.html")
 
-@app.route('/medicine')
+@app.route('/medicine', methods=["GET","POST"])
 def medicine_page():
-	return render_template("medicine.html")
+    return render_template('medicine.html')
+
+
+
+@app.route('/uploader', methods = ['GET', 'POST'])
+def upload_file():
+   if request.method == 'POST':
+      f = request.files['file']
+      f.save(os.path.join(app.config['UPLOAD_FOLDER'], "prescriptions/"+f.filename))
+      return 'file uploaded successfully'
+
 
 @app.route('/donate')
 def donate_page():
@@ -65,7 +81,6 @@ def homepage():
 def signup_page():
     try:
         form = RegistrationForm(request.form)
-        print("hi")
         if request.method == "POST":
             print('hello from if')
             username  = str(form.username.data)
@@ -75,8 +90,8 @@ def signup_page():
             file = request.files['file']
             if file and allowed_file(file.filename):
                 x=file.filename.rsplit('.', 1)[1].lower()
-                filename = str(username)+x
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                filename = str(username)+'.'+x
+                file.save(os.path.join(app.config['UPLOAD_FOLDER'], "profile_pics"+filename))
             s = "insert into users(user_name, user_email, user_address, password) values(%s,%s,%s,%s)"
             v=(username,email,address,password)
             #"INSERT INTO users (user_name, user_email, user_address,  password) VALUES ( %s, %s, %s, %s);",(username, email, address, password)
@@ -93,7 +108,7 @@ def signup_page():
 def login_page():
     error = None
     if 'username' in session:
-        return redirect(url_for('profile'))
+        return redirect(url_for('homepage'))
     if request.method == 'POST':
         username_form  = request.form['username']
         password_form  = request.form['password']

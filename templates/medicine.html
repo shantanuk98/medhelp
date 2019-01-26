@@ -8,4 +8,9 @@
 <div class="col-sm-12">
 	<a href="{{url_for('homepage')}}" style="text-decoration: none;"><h3>Go Back</h3></a>
 </div>
+
+<form class="" action="http://localhost:5000/uploader" method="post" enctype = "multipart/form-data">
+	<input class="custom-file-input" type = "file" name = "file" />
+	<button type="submit" name="button">uploaad</button>
+</form>
 {% endblock %}

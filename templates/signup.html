@@ -13,18 +13,19 @@
                     <a href="{{ url_for ('homepage') }}">
                       <img src="#" alt="">
                     </a>
-                    <form method="post">
+                    <form method="post" enctype = "multipart/form-data" >
 											<div class = "container">
 												<h4>Register</h4>
 												<br>
 												{% from "_formhelpers.html" import render_field %}
-												<form method=post action="/register/">
+												<form method=post action="/login/" enctype = "multipart/form-data">
 													<dl>
 														{{render_field(form.username)}}
 														{{render_field(form.email)}}
 														{{render_field(form.address)}}
 														{{render_field(form.password)}}
 														{{render_field(form.confirm)}}
+														<input style="padding-top: 20px; padding-left: 10px; padding-right:10px;" class="custom-file-input" type = "file" name = "file" />
 														{{render_field(form.accept_tos)}}
 													</dl>
 													<p><input type=submit value=Register></p>
