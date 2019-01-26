@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MedHelp</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../static/logo.png" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+      body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+      body, html {
+          height: 100%;
+          line-height: 1.8;
+      }
+
+      /* Full height image header */
+      .bgimg-1 {
+          background-position: center;
+          background-size: cover;
+          background-image: url("../static/bg.jpg");
+          min-height: 100%;
+      }
+      .w3-bar .w3-button {
+          padding: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="w3-top">
+      <div class="w3-bar w3-white w3-card" id="myNavbar">
+        <a href="#home" class="w3-bar-item"><img src="../static/logo.png" width="90" height="45"></a>
+
+        <!-- Right-sided navbar links -->
+        <div class="w3-right w3-hide-small">
+          <a href="#about" class="w3-bar-item w3-button"><i class="fa fa-th"></i> ABOUT</a>
+          <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> TEAM</a>
+          <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+          <form class="form-inline">
+            <a class="nav-item nav-link mr-sm-0" href="{{ url_for ('logout') }}"> <button type="button" class="btn btn-danger bg-transparent text-success" name="button">Logout</button> </a>
+          </form>
+        </div>
+
+        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+          <i class="fa fa-bars"></i> MENU
+        </a>
+      </div>
+    </div>
+
+    <!-- Sidebar on small screens when clicking the menu icon -->
+    <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+      <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16"><i class="fa fa-close"></i> Close</a>
+      <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-th"></i> ABOUT</a>
+      <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-user"></i> TEAM</a>
+      <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+      <form class="form-inline">
+        <a class="nav-item nav-link mr-sm-0" href="{{ url_for ('logout') }}"> <button type="button" class="btn btn-danger bg-transparent text-success" name="button">Logout</button> </a>
+      </form>
+    </nav>
+    <!-- Header with full-height image -->
+      <header class="bgimg-1 w3-display-container" id="home">
+        <div class="w3-display-left w3-text-black" style="padding:48px">
+          <span class="w3-jumbo w3-hide-small"><br><br><br><br>&nbsp;&nbsp;&nbsp;<p style="font-size: 250%;">MedHelp</p></span><br>
+          <span class="w3-xxxlarge w3-hide-large w3-hide-medium"><br><br><br><br><p style="font-size: 400%;">MedHelp</p></span><br>
+        </div>
+      </header>
+
+      <!-- About Section-->
+      <div class="w3-container"  style="padding:128px 16px" id="about">
+        <h1 class="w3-center w3-xxxlarge"><b>ABOUT THE COMPANY</b></h1>
+        <p class="w3-center w3-xlarge">The wastage of medicine which can be used to save a poor man's life is a great tragedy. We are creating a web application which will have a database of unused and unexpired medicines which can redistributed through different methods. We will also host a list of contributors ranked according to their contribution to gamify the process. We will encourage and convience the users to contribute not just unused medicines but also donate as much as they can to the needy. They will also be encouraged to work as volunteers whenever needed.</p><br>
+        <p class="w3-center w3-xxlarge"><b>Key features of our company</b></p><br>
+        <div class="w3-row-padding w3-center">
+          <div class="w3-onethird">
+            <a href="{{ url_for('medicine_page') }}">
+                <i class="fa fa-desktop w3-margin-bottom w3-jumbo"></i>
+                <p class="w3-large">Get Medicines</p>
+            </a>
+          </div>
+          <div class="w3-onethird">
+            <a href="{{ url_for('donate_page') }}">
+                <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
+                <p class="w3-large">Donate Medicines</p>
+            </a>
+          </div>
+          <div class="w3-onethird">
+            <a href="{{ url_for('volunteer_page') }}">
+                <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
+                <p class="w3-large">Become a volunteer</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div id="pageContent" class="content">
+        <div class="datatable" style="text-align: center; padding-bottom: 3px;">
+                    <div class="lt">&nbsp;</div>
+                    <div class="rt">&nbsp;</div>
+                    <div class="lb">&nbsp;</div>
+                    <div class="rb">&nbsp;</div>
+
+                    <div style="padding: 4px 0 0 6px;font-size:1.4rem;position:relative;">
+                        <h1 class="w3-center w3-xxxlarge" style="text-align:center;">Top contributors</h1>
+
+                        <div style="position:absolute;right:0.25em;top:0.35em;">
+                            <span style="padding:0;position:relative;bottom:2px;" class="rowCount"></span>
+
+
+                            <span class="filter" style="display:none;">
+                                <img class="opened" src="//st.codeforces.com/s/44929/images/icons/control-270.png"/>
+                                <input style="padding:0;position:relative;bottom:2px;border:1px solid #aaa;height:17px;font-size:1.3rem;"/>
+                            </span>
+                        </div>
+                    </div>
+                    <div style="background-color: white;margin:0.3em 3px 0 3px;position:relative;">
+                    <div class="ilt">&nbsp;</div>
+                    <div class="irt">&nbsp;</div>
+                    <table class="" style="text-align: center;font-size: 20px;">
+        <tr>
+            <th></th>
+            <th width="5%" style="text-align:center;">Rank</th>
+            <th style="text-align:center;">User</th>
+            <th width="9%"><pre>Contributions</pre></th>
+        </tr>
+            <tr>
+                <td></td>
+                <td>1</td>
+                <td style="text-align:center;padding-left:1em;"><img class="standings-flag" src="../static/profile_pics/amitabh bachchan.jpeg"
+                 alt="Poland" title="Poland"/><a href="/profile/Radewoosh" title="Legendary grandmaster Radewoosh" class="rated-user user-legendary">Amitabh Bachchan</a></td>
+                <td>207</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>2</td>
+                <td style="text-align:center;padding-left:1em;"><img class="standings-flag" src="../static/profile_pics/bill gates.jpeg"
+                 alt="Poland" title="Poland"/><a href="/profile/Errichto" title="International Grandmaster Errichto" class="rated-user user-red">Bill Gates</a></td>
+                <td>177</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>3</td>
+                <td style="text-align:center;padding-left:1em;"><img class="standings-flag" src="../static/profile_pics/jeff bezos.jpeg"
+                 alt="United States" title="United States"/><a href="/profile/neal" title="International Grandmaster neal" class="rated-user user-red">Jeff Bezos</a></td>
+                <td>159</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>4</td>
+                <td style="text-align:center;padding-left:1em;"><img class="standings-flag" src="../static/profile_pics/jon snow.jpeg"
+                    alt="United States" title="United States"/><a href="/profile/neal" title="International Grandmaster neal" class="rated-user user-red">Jon Snow</a></td>
+                <td>159</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>5</td>
+                <td style="text-align:center;padding-left:1em;"><img class="standings-flag" src="../static/profile_pics/m s dhoni.jpeg"
+                    alt="United States" title="United States"/><a href="/profile/neal" title="International Grandmaster neal" class="rated-user user-red">M.S. Dhoni</a></td>
+                <td>159</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>6</td>
+                <td style="text-align:center;padding-left:1em;"><img class="standings-flag" src="../static/profile_pics/mark zuckerburg.jpeg"
+                    alt="United States" title="United States"/><a href="/profile/neal" title="International Grandmaster neal" class="rated-user user-red">Mark Zuckerberg</a></td>
+                <td>159</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>7</td>
+                <td style="text-align:center;padding-left:1em;"><img class="standings-flag" src="../static/profile_pics/munna bhaiya.jpeg"
+                    alt="United States" title="United States"/><a href="/profile/neal" title="International Grandmaster neal" class="rated-user user-red">Munna Bhaiya</a></td>
+                <td>159</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>8</td>
+                <td style="text-align:center;padding-left:1em;"><img class="standings-flag" src="../static/profile_pics/rajnikanth.jpeg"
+                    alt="United States" title="United States"/><a href="/profile/neal" title="International Grandmaster neal" class="rated-user user-red">Rajnikanth</a></td>
+                <td>159</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>9</td>
+                <td style="text-align:center;padding-left:1em;"><img class="standings-flag" src="../static/profile_pics/satya nadela.jpeg"
+                    alt="United States" title="United States"/><a href="/profile/neal" title="International Grandmaster neal" class="rated-user user-red">Satya Nadela</a></td>
+                <td>159</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>10</td>
+                <td style="text-align:center;padding-left:1em;"><img class="standings-flag" src="../static/profile_pics/sundar pichai.jpeg"
+                    alt="United States" title="United States"/><a href="/profile/neal" title="International Grandmaster neal" class="rated-user user-red">Sundar Pichai</a></td>
+                <td>159</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+      <!-- Team Section -->
+      <div class="w3-container"  style="padding:128px 16px" id="team">
+        <h1 class="w3-center w3-xxxlarge"><b>THE TEAM</b></h1>
+        <p class="w3-center w3-xxlarge">The ones who runs this company</p>
+        <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <h3>Shantanu Kumar</h3>
+              </div>
+            </div>
+          </div>
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <h3>Piyush Ranjan</h3>
+              </div>
+            </div>
+          </div>
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <h3>Kamal Nayan</h3>
+              </div>
+            </div>
+          </div>
+
+      <!-- Contact Section -->
+      <div class="w3-container" style="padding:128px 16px" id="contact">
+        <h1 class="w3-center w3-xxxlarge"><b>CONTACT US</b></h1>
+        <p class="w3-center w3-xxlarge">Lets get in touch. Send us a message:</p>
+        <div class="w3-row-padding" style="margin-top:64px">
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <p><i class="fa fa-map-marker fa-fw w3-jumbo w3-margin-right"></i> G.S. Road, Jugsalai, Jamshedpur</p>
+              </div>
+            </div>
+          </div>
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <p><i class="fa fa-phone fa-fw w3-jumbo w3-margin-right"></i> Phone: 0657-2222263</p>
+              </div>
+            </div>
+          </div>
+          <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="w3-card">
+              <div class="w3-container">
+                <p><i class="fa fa-envelope fa-fw w3-jumbo w3-margin-right"> </i> Email: <a href="mailto:shcjsr@rediffmail.com">medhelp@rediffmail.com</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <script>
+
+    // Toggle between showing and hiding the sidebar when clicking the menu icon
+    var mySidebar = document.getElementById("mySidebar");
+
+    function w3_open() {
+        if (mySidebar.style.display === 'block') {
+            mySidebar.style.display = 'none';
+        } else {
+            mySidebar.style.display = 'block';
+        }
+    }
+
+    // Close the sidebar with the close button
+    function w3_close() {
+        mySidebar.style.display = "none";
+    }
+    </script>
+  </body>
+</html>

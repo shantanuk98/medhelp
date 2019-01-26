@@ -4,7 +4,6 @@ from passlib.hash import sha256_crypt
 import gc
 import mysql.connector
 import os
-from flask import Markup
 
 mydb = mysql.connector.connect(
   host="localhost",
@@ -59,8 +58,8 @@ def volunteer_page():
 def homepage():
     if 'username' in session:
         username_session = escape(session['username']).capitalize()
-        return render_template('index.html', session_user_name=username_session)
-    return redirect(url_for('login_page'))
+        return render_template('index2.html', session_user_name=username_session)
+    return render_template('index.html')
 
 @app.route('/signup', methods=["GET","POST"])
 def signup_page():
@@ -90,22 +89,11 @@ def signup_page():
         return(str(e))
 
 
-# Route for handling the login page logic
-'''@app.route('/login/', methods=['GET', 'POST'])
-def login_page():
-    error = None
-    if request.method == 'POST':
-        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
-            error = 'Invalid Credentials. Please try again.'
-        else:
-            return redirect(url_for('profile'))
-    return render_template('login.html', error=error)
-'''
 @app.route('/login/', methods=['GET', 'POST'])
 def login_page():
     error = None
     if 'username' in session:
-        return redirect(url_for('homepage'))
+        return redirect(url_for('profile'))
     if request.method == 'POST':
         username_form  = request.form['username']
         password_form  = request.form['password']
@@ -115,7 +103,7 @@ def login_page():
             for row in mycursor.fetchall():
                 if password_form == row[0]:
                     session['username'] = request.form['username']
-                    return redirect(url_for('homepage'))
+                    return redirect(url_for('profile'))
                 else:
                     error = "Invalid Credential"
         else:
@@ -128,11 +116,5 @@ def logout():
     session.pop('username', None)
     return redirect(url_for('homepage'))
 
-
 if __name__ == "__main__":
-    '''app.secret_key = '2\xb91\xc6\x8d\x16\xc8\x16v2\xcc\xb1\xe7\xcfT\xf6\t\tq\x0e\n\x8e\x94\x18'
-    app.config['SESSION_TYPE'] = 'filesystem'
-
-    session.init_app(app)
-'''
     app.run(debug=True)
