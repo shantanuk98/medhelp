@@ -7,7 +7,7 @@ import mysql.connector
 mydb = mysql.connector.connect(
   host="localhost",
   user="root",
-  passwd="lab3@cc",
+  passwd="root",
   database="mydatabase"
 )
 
@@ -20,20 +20,14 @@ app = Flask(__name__)
 class RegistrationForm(Form):
     username = TextField('Username', [validators.Length(min=4, max=20)])
     email = TextField('Email Address', [validators.Length(min=6, max=50)])
-    password = PasswordField('New Password', [
+    password = TextField('New Password', [
         validators.Required(),
         validators.EqualTo('confirm', message='Passwords must match')
     ])
-    confirm = PasswordField('Repeat Password')
+    confirm = TextField('Repeat Password')
+    address = TextField('Address', [validators.Length(min=0, max=200)])
     accept_tos = BooleanField('I accept the Terms of Service and Privacy Notice (updated Jan 22, 2015)', [validators.Required()])
 
-@app.route('/signup')
-def signup_page():
-	return render_template("signup.html")
-
-@app.route('/login')
-def login_page():
-	return render_template("login.html")
 
 @app.route('/medicine')
 def medicine_page():
@@ -51,44 +45,40 @@ def volunteer_page():
 def homepage():
     return render_template("index.html")
 
-@app.route('/register', methods=["GET","POST"])
-def register_page():
+@app.route('/signup', methods=["GET","POST"])
+def signup_page():
     try:
         form = RegistrationForm(request.form)
-
-        if request.method == "POST" and form.validate():
-            username  = form.username.data
-            email = form.email.data
-            password = sha256_crypt.encrypt((str(form.password.data)))
-        return render_template("register.html", form=form)
+        print("hi")
+        if request.method == "POST":
+            print('hello from if')
+            username  = str(form.username.data)
+            email = str(form.email.data)
+            password = str(form.password.data)
+            address = str(form.address.data)
+            s = "insert into users(user_name, user_email, user_address, password) values(%s,%s,%s,%s)"
+            v=(username,email,address,password)
+            print(s)
+            #"INSERT INTO users (user_name, user_email, user_address,  password) VALUES ( %s, %s, %s, %s);",(username, email, address, password)
+            mycursor.execute(s,v)
+            mydb.commit()
+        return render_template("signup.html", form=form)
 
     except Exception as e:
         return(str(e))
 
 
-@app.route('/login', methods=["GET","POST"])
+# Route for handling the login page logic
+@app.route('/login/', methods=['GET', 'POST'])
 def login_page():
-
-    error = ''
-    try:
-
-        if request.method == "POST":
-
-            attempted_username = request.form['username']
-            attempted_password = request.form['password']
-
-            if attempted_username == "admin" and attempted_password == "password":
-                return redirect(url_for('main.html'))
-
-            else:
-                error = "Invalid credentials. Try Again."
-
-        return render_template("login.html", error = error)
-
-    except Exception as e:
-        #flash(e)
-        return render_template("login.html", error = error)
+    error = None
+    if request.method == 'POST':
+        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
+            error = 'Invalid Credentials. Please try again.'
+        else:
+            return redirect(url_for('homepage'))
+    return render_template('login.html', error=error)
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
