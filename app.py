@@ -28,11 +28,11 @@ class RegistrationForm(Form):
     accept_tos = BooleanField('I accept the Terms of Service and Privacy Notice (updated Jan 22, 2015)', [validators.Required()])
 
 @app.route('/signup')
-def medicine_page():
+def signup_page():
 	return render_template("signup.html")
 
 @app.route('/login')
-def medicine_page():
+def login_page():
 	return render_template("login.html")
 
 @app.route('/medicine')
